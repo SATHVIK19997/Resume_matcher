@@ -7,6 +7,26 @@ RESUMES_DIR = "data/resumes"
 
 LABEL_MAP = {1.0: "Good Match", 0.5: "Partial Match", 0.0: "Poor Match"}
 
+SECTION_LABELS = {
+    "skills":     "Skills",
+    "experience": "Experience",
+    "summary":    "Summary",
+    "education":  "Education",
+}
+
+
+def classify(score):
+    if score >= 0.60:
+        return "Good Match"
+    elif score >= 0.50:
+        return "Partial Match"
+    return "Poor Match"
+
+
+def section_bar(score):
+    filled = round(score * 10)
+    return "[" + "#" * filled + "-" * (10 - filled) + "]"
+
 
 def main():
     jd_text = load_text(JD_PATH)
@@ -16,18 +36,29 @@ def main():
 
     ranked = rank_resumes(jd_text, resumes)
 
-    print(f"{'Rank':<5} {'Resume':<38} {'Score':<8} {'Predicted':<18} {'Manual Label'}")
-    print("-" * 85)
-
     for i, r in enumerate(ranked, 1):
         name = r["name"].replace(".txt", "")
         score = r["score"]
-        predicted = "Good Match" if score >= 0.60 else ("Partial Match" if score >= 0.50 else "Poor Match")
-        manual = LABEL_MAP.get(get_label(r["name"]), "Unknown")
-        print(f"{i:<5} {name:<38} {score:<8.4f} {predicted:<18} {manual}")
+        predicted = classify(score)
+        manual_score = get_label(r["name"])
+        manual = LABEL_MAP.get(manual_score, "Unknown")
+        match = "OK" if predicted == manual else "MISMATCH"
+
+        print(f"{'-' * 62}")
+        print(f"  #{i}  {name}")
+        print(f"       Overall Score : {score:.4f}  |  {predicted}  {match} (manual: {manual})")
+
+        if r["breakdown"]:
+            print(f"       Section Scores :")
+            for section, sec_score in r["breakdown"].items():
+                label = SECTION_LABELS.get(section, section.title())
+                bar = section_bar(sec_score)
+                print(f"         {label:<12}  {bar}  {sec_score:.4f}")
+
+    print(f"{'-' * 62}\n")
 
     metrics = evaluate(ranked)
-    print("\n--- Metrics ---")
+    print("--- Metrics ---")
     print(f"Precision@3  : {metrics['precision_at_3']}")
     print(f"Precision@5  : {metrics['precision_at_5']}")
     print(f"nDCG@3       : {metrics['ndcg_at_3']}")

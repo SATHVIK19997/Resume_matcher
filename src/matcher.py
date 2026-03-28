@@ -12,8 +12,7 @@ def _cosine(vec_a, vec_b):
 
 def score_resume(jd_text, resume_text):
     """
-    Section-aware scoring. Each section (skills, experience, summary, education)
-    is scored against the full JD separately, then combined using weighted average.
+    Section-aware scoring. Returns overall score + per-section breakdown.
     Falls back to whole-text scoring if no sections are detected.
     """
     jd = preprocess(jd_text)
@@ -22,27 +21,34 @@ def score_resume(jd_text, resume_text):
     sections = parse_sections(resume_text)
 
     if not sections:
-        # no sections found, fall back to scoring the whole text
         resume_vec = model.encode([preprocess(resume_text)])
-        return round(_cosine(jd_vec, resume_vec), 4)
+        score = round(_cosine(jd_vec, resume_vec), 4)
+        return {"score": score, "breakdown": {}}
 
     weights = get_weights_for_sections(sections)
 
     total_score = 0.0
+    breakdown = {}
+
     for section, text in sections.items():
         section_vec = model.encode([preprocess(text)])
-        sim = _cosine(jd_vec, section_vec)
+        sim = round(_cosine(jd_vec, section_vec), 4)
+        breakdown[section] = sim
         total_score += sim * weights[section]
 
-    return round(total_score, 4)
+    return {"score": round(total_score, 4), "breakdown": breakdown}
 
 
 def rank_resumes(jd_text, resumes):
     # resumes is a dict: {filename: text}
     results = []
     for name, text in resumes.items():
-        score = score_resume(jd_text, text)
-        results.append({"name": name, "score": score})
+        result = score_resume(jd_text, text)
+        results.append({
+            "name":      name,
+            "score":     result["score"],
+            "breakdown": result["breakdown"],
+        })
 
     results.sort(key=lambda x: x["score"], reverse=True)
     return results
