@@ -1,0 +1,57 @@
+Name: Sathvik Kantharaj
+Email: sathvikvk1999@gmail.com
+Phone: 7349092474
+Location: Bengaluru, Karnataka, India
+LinkedIn: LinkedIn
+Experience: ~4 years
+
+Profile:
+Applied AI Engineer and AI Product Builder with ~4 years of experience designing and shipping enterprise-grade Generative AI systems. Currently a Senior Lead at Kore.ai building agentic AI platforms, LLM-powered conversational systems, and real-time voice automation for enterprise customers. Experienced in translating business problems into AI product solutions through use-case discovery, rapid prototyping, and production deployment. Strong background in Retrieval Augmented Generation (RAG), LLM orchestration, tool invocation, conversational AI, and AI solution architecture. Currently pursuing Product Management Fellowship from NextLeap to strengthen product discovery, PRD development, and product strategy capabilities.
+
+Work Experience:
+
+Senior Lead - Agent Systems | Kore.ai | Oct 2025 - Present
+- Designed Agentic AI workflows using RAG + tool invocation enabling multi-step task completion across enterprise APIs.
+- Designed memory-augmented AI agents capable of maintaining conversational context, leveraging historical interactions, and delivering human-like decision-making.
+- Built enterprise Voice AI agents integrated with telephony systems enabling automated customer interactions and real-time conversational automation.
+
+Associate Lead | Kore.ai | Jan 2025 - Sep 2025
+- Engineered advanced Generative AI solutions employing sophisticated agent types such as RAG Agents, Prompt Agents, Data API Agents for the AI for Work product.
+- Leveraged MCP for efficient integration and management of tools, APIs, and data streams within agent workflows, optimizing real-time data interactions and enriching agent functionalities.
+- Developed a robust custom application for handling complex XO chatbot migrations, parsing exported JSON files with multi-channel messages, multi-lingual agent configurations, voice call properties, and context-switching settings.
+- Collaborated closely with BCG on custom demo development, executing comprehensive industry-specific AI agent applications and conducting detailed demo calls.
+- Designed and optimized multi-intent and multi-turn conversational flows, improving intent accuracy and user experience across enterprise deployments.
+- Trained and fine-tuned chatbots using historical chat transcripts, improving resolution rate and reducing fallback intents.
+
+Software Engineer | Kore.ai | Mar 2024 - Dec 2024
+- Enabled and fine-tuned Multi-Intent detection using DialogGPT, enhancing chatbot accuracy and conversational intelligence.
+- Developed sophisticated voice-enabled conversational flows leveraging Generative AI for realistic agent interactions.
+- Built robust Agentic applications with integrated Generative AI nodes and LLMs for context-aware interactions.
+- Developed custom pre/post-processor scripts and optimized LLM integrations to minimize latency and enhance responsiveness.
+
+Software Engineer | Pratian Technologies | Aug 2022 - Jan 2024
+- Awarded "Star of the Quarter" by FirstMeridian client and Pratian Technologies for exceptional frontend development.
+- Developed a scalable job portal and mobile apps using Angular, supporting over 100,000 users at launch.
+- Designed responsive and intuitive UI for web and mobile (iOS/Android), integrating RESTful APIs for robust data exchange.
+- Led development of a government app for Saudi Arabia, now live on App Store and Play Store.
+
+Technical Skills:
+- Programming Languages: Python (LLM orchestration, evaluation scripts), Java, JavaScript, TypeScript, HTML/CSS
+- Frameworks: Angular, TypeScript, Node.js, Express, Material-UI, FastAPI
+- Generative AI & LLM: LLM Integration, Function Calling, RAG, Embeddings, Semantic Search, Guardrails, Model Evaluation, Prompt Engineering, Agentic AI
+- Agent Platforms: Kore.ai XO & Agentic Platforms, Crew.ai, LangChain, LangGraph, Agentic workflows
+- Tools & Integrations: MCP, n8n automation platform, RESTful APIs, FastAPI
+- Developer Tools: Claude Code, Cursor, Git, CRM Systems, VS Code, Postman, Asana, Jira
+- Databases: SQL (MySQL), NoSQL (MongoDB)
+- Cloud: AWS (Lambda, S3), Azure basics
+
+Education:
+Bachelor of Engineering in Civil Engineering | M S Ramaiah Institute Of Technology, Bengaluru
+
+Courses:
+- Product Manager Fellowship, NextLeap
+- Microsoft AI Product Manager Professional Certificate
+- NodeJS - The Complete Guide, Udemy
+- Angular - The Complete Guide, Udemy
+- The Complete 2024 Web Development Bootcamp, Udemy
+- Full Stack Development, Pratian Technologies

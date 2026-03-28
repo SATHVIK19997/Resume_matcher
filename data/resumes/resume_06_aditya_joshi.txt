@@ -1,0 +1,35 @@
+Name: Aditya Joshi
+Email: aditya.joshi@email.com
+Location: Mumbai, India
+Experience: 5 years
+
+Summary:
+Technical Support Engineer with 5 years of experience in enterprise software support, CRM integrations, and customer success. Strong customer communication skills and troubleshooting ability.
+
+Work Experience:
+
+Senior Technical Support Engineer | Zendesk India | 2021 - Present (3 years)
+- Provided technical support for Zendesk AI and chatbot product configurations.
+- Integrated Zendesk with Salesforce, HubSpot using REST/JSON APIs.
+- Monitored system health using dashboards and responded to incidents.
+- Tracked and reported on CSAT, FRT, AHT, TAT support metrics.
+- Wrote SQL queries to extract support data for customer reporting.
+- Configured workflows and escalated complex issues to engineering teams.
+
+Technical Support Engineer | Freshworks | 2019 - 2021 (2 years)
+- Supported enterprise customers with Freshdesk and Freshchat configurations.
+- Debugged API integration issues and wrote Python scripts for automation.
+
+Education:
+B.Tech in Computer Science | VJTI Mumbai | 2019
+
+Technical Skills:
+- Languages: Python (basic scripting), SQL
+- Integration: REST, JSON, SOAP, Salesforce API, HubSpot, Zendesk API
+- Support Metrics: CSAT, FRT, AHT, TAT
+- Tools: Postman, Jira, Confluence, Datadog
+- Databases: MySQL, PostgreSQL (basic)
+
+Note: No deep AI/ML or LLM development experience. Familiar with AI chatbot products from a support angle but not a builder.
+
+Label: Partial Match

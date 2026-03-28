@@ -1,0 +1,47 @@
+Job Title: Senior AI Applications Engineer
+Location: India - Bengaluru
+Employment Type: Full time
+Department: Post Sales
+Company: Ema (Universal AI Employee Platform)
+
+Overview:
+The Senior AI Application Engineer will be pivotal in providing world-class post-deployment support for Ema's Agent Assist/Chatbot product. This role requires a strong blend of technical expertise and customer-focused problem-solving. You will configure, troubleshoot, and optimize AI solutions for our customers, ensuring high performance, continuous improvement of customer workflows, and exceptional customer satisfaction. You will independently manage complex deployments and solutions for enterprise customers with minimal guidance.
+
+Roles and Responsibilities:
+- Configure and integrate AI/GenAI workflows using platform APIs and customer data, ensuring smooth and secure deployment.
+- Translate customer requirements into technical solutions, validating workflow correctness and continuously refining prompts for optimal performance.
+- Develop and automate tasks using Python & SQL, and build prototypes using open-source Agentic Frameworks to streamline CX workflows.
+- Design, run, and analyze A/A experiments to measure and improve workflow quality and reliability.
+- Monitor AI workflows using business metrics and observability dashboards, quickly responding to issues to ensure high availability.
+- Provide proactive solutions and regular updates to customers, maintaining high CSAT through effective troubleshooting and communication.
+- Diagnose and resolve platform issues related to APIs, data integration, and workflow configurations, collaborating with engineering when needed.
+- Utilize APIs and integration protocols (JSON, REST, SOAP) to configure workflows and integrate with CRM/ATS tools.
+- Write custom scripts to query databases and create reports for in-depth analysis and to demonstrate ROI to customers.
+
+Required Experience:
+- 4+ years of software engineering experience.
+- Significant experience in AI/LLM application development, including building agents, integrations, workflows, and evaluating/improving their performance.
+- Experience setting up, configuring, and supporting ML Systems or AI Agents.
+- Experience in building LLM-based evaluation frameworks and conducting UATs with real customers.
+- Experience with prompt engineering techniques.
+- Demonstrated ability to manage complex deployments and solution design for enterprise customers independently.
+- Familiarity with key support metrics (FRT, AHT, TAT, CSAT) and reporting.
+- Strong troubleshooting and problem-solving skills in production environments.
+
+Technical Skills:
+- Proficiency in Python and SQL scripting.
+- Experience with prompt engineering techniques.
+- Proficient at invoking platform APIs to retrieve or push data, configure workflows.
+- Familiarity with JSON, REST, SOAP or other integration protocols.
+- Familiarity with integrating common CRMs/ATS tools.
+- Data-driven evaluation skills, including setting up and interpreting A/A experiments.
+- Familiarity with logging, dashboard creation, and alerting tools.
+- Understanding of Data Structures and Algorithms.
+- Experience with open-source Agentic Frameworks (LangChain, LlamaIndex, AutoGen, etc.).
+
+Soft Skills:
+- Excellent communication skills to collaborate with both technical and non-technical stakeholders.
+- Ownership and Initiative: Takes responsibility for ongoing workflow management and customer outcomes.
+- Curiosity and Continuous Learning: Actively explores new GenAI/automation techniques.
+- Collaboration: Works effectively across multiple teams.
+- Customer Empathy: Prioritizes customer success criteria.

@@ -1,0 +1,36 @@
+Name: Priya Nair
+Email: priya.nair@email.com
+Location: Bengaluru, India
+Experience: 5 years
+
+Summary:
+AI/ML Engineer specializing in LLM deployment, GenAI application development, and post-sales technical support for enterprise AI products. Experienced in Python, agentic workflows, and customer-facing deployments.
+
+Work Experience:
+
+Senior ML Engineer - Post Sales | Sprinklr | 2022 - Present (2 years)
+- Supported enterprise customers with AI workflow configuration and troubleshooting for the Sprinklr AI chatbot platform.
+- Built LLM-based evaluation frameworks to assess response quality, conducting UATs with Fortune 500 customers.
+- Used prompt engineering to optimize chatbot performance, reducing hallucinations by 40%.
+- Integrated platform APIs with Zendesk, HubSpot CRM using REST/JSON protocols.
+- Monitored AI system health using observability dashboards, tracking CSAT, FRT, and AHT metrics.
+- Wrote Python scripts for data extraction and SQL queries for customer reporting.
+
+ML Engineer | Flipkart AI | 2019 - 2022 (3 years)
+- Developed and deployed recommendation engine and NLP classification models.
+- Built data preprocessing pipelines and model evaluation workflows using scikit-learn and PyTorch.
+- Automated A/B testing pipelines and analyzed experiment results.
+
+Education:
+M.Tech in AI & Machine Learning | IIIT Hyderabad | 2019
+
+Technical Skills:
+- Languages: Python, SQL
+- AI/ML: LLMs, LangChain, OpenAI, Anthropic APIs, RAG, prompt engineering, LLM evaluation
+- Integration: REST, JSON, Zendesk API, HubSpot API, Salesforce
+- Monitoring: New Relic, Grafana, custom dashboards
+- Databases: PostgreSQL, Redshift
+- Frameworks: LangChain, LlamaIndex, scikit-learn, PyTorch
+- Support Metrics: CSAT, FRT, AHT, TAT
+
+Label: Good Match

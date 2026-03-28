@@ -1,0 +1,42 @@
+Name: Arjun Sharma
+Email: arjun.sharma@email.com
+Location: Bengaluru, India
+Experience: 6 years
+
+Summary:
+Senior AI Engineer with 6 years of experience in LLM application development, agentic frameworks, and enterprise AI deployments. Strong background in prompt engineering, Python, and building AI-powered workflows for enterprise customers.
+
+Work Experience:
+
+AI Solutions Engineer | Accenture AI Labs | 2021 - Present (3 years)
+- Built and deployed LLM-based chatbot and Agent Assist solutions for 10+ enterprise customers.
+- Developed prompt engineering pipelines using LangChain and OpenAI APIs, improving response accuracy by 35%.
+- Configured REST and SOAP API integrations between AI workflows and CRM tools (Salesforce, ServiceNow).
+- Designed A/B and A/A experiments to evaluate AI workflow quality, improving CSAT scores by 20%.
+- Wrote Python and SQL scripts to query customer databases and generate ROI reports for stakeholders.
+- Monitored AI workflows using observability dashboards (Datadog, Grafana) and responded to production issues.
+- Collaborated with enterprise customers to translate business requirements into technical GenAI solutions.
+- Conducted UAT sessions with real customers for LLM evaluation frameworks.
+
+Software Engineer | Infosys | 2018 - 2021 (3 years)
+- Developed Python-based backend services and REST APIs for enterprise clients.
+- Built data pipelines and automated reporting scripts using SQL and Python.
+- Integrated third-party APIs (JSON/REST) with internal systems.
+
+Education:
+B.Tech in Computer Science | IIT Bangalore | 2018
+
+Technical Skills:
+- Languages: Python, SQL, JavaScript
+- AI/ML: LangChain, LlamaIndex, OpenAI API, HuggingFace, prompt engineering, RAG pipelines
+- APIs & Integration: REST, SOAP, JSON, GraphQL, Salesforce API, ServiceNow API
+- Monitoring: Datadog, Grafana, CloudWatch
+- Databases: PostgreSQL, MongoDB, BigQuery
+- Cloud: AWS (Lambda, S3, SageMaker), GCP
+- Agentic Frameworks: LangChain, AutoGen, CrewAI
+
+Certifications:
+- AWS Certified Solutions Architect
+- Google Professional ML Engineer
+
+Label: Good Match

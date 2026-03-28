@@ -1,0 +1,34 @@
+Name: Rahul Verma
+Email: rahul.verma@email.com
+Location: Bengaluru, India
+Experience: 5 years
+
+Summary:
+Experienced AI Engineer with a strong background in LLM applications, Python development, and enterprise software integrations. Skilled in building agentic workflows and providing technical solutions to complex business problems.
+
+Work Experience:
+
+AI Engineer | IBM India | 2021 - Present (3 years)
+- Developed LLM-based solutions using LangChain and OpenAI for enterprise automation use cases.
+- Built Python automation scripts and integrated with REST APIs for workflow configurations.
+- Worked on prompt optimization and fine-tuning strategies for customer-specific use cases.
+- Deployed AI agents using AutoGen framework for multi-step task automation.
+- Collaborated with customers to gather requirements and validate AI solution correctness.
+
+Software Developer | TCS | 2019 - 2021 (2 years)
+- Built backend services using Python and Django.
+- Worked with PostgreSQL databases and wrote complex SQL queries.
+- Integrated third-party REST APIs for enterprise projects.
+
+Education:
+B.E. in Computer Science | VTU Bangalore | 2019
+
+Technical Skills:
+- Languages: Python, SQL, Java
+- AI/ML: LangChain, OpenAI API, AutoGen, prompt engineering, RAG
+- APIs: REST, JSON, SOAP
+- Databases: PostgreSQL, MySQL
+- Cloud: AWS (EC2, S3, Lambda)
+- Tools: Git, Docker, Postman
+
+Label: Good Match

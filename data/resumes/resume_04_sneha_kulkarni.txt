@@ -1,0 +1,37 @@
+Name: Sneha Kulkarni
+Email: sneha.kulkarni@email.com
+Location: Pune, India
+Experience: 4 years
+
+Summary:
+Python developer with 4 years of experience in backend development, data engineering, and some exposure to machine learning. Recently started exploring GenAI and LLM APIs in personal projects.
+
+Work Experience:
+
+Backend Developer | Persistent Systems | 2020 - Present (4 years)
+- Developed REST APIs using FastAPI and Flask for enterprise SaaS products.
+- Wrote complex SQL queries for data extraction and reporting.
+- Integrated third-party APIs (Salesforce, SAP) using JSON/REST protocols.
+- Built automation scripts in Python for data processing workflows.
+- Some exposure to ML model deployment using scikit-learn.
+
+Junior Developer | Wipro | 2020 (6 months)
+- Developed Python scripts for data transformation tasks.
+- Worked on SQL database optimization.
+
+Education:
+B.E. in Information Technology | PICT Pune | 2020
+
+Technical Skills:
+- Languages: Python, SQL
+- Frameworks: FastAPI, Flask, Django
+- Integration: REST, JSON, Salesforce API, SAP API
+- Databases: PostgreSQL, MySQL, Redis
+- Cloud: AWS (EC2, S3)
+- Tools: Git, Docker, Jenkins
+
+Personal Projects:
+- Built a simple chatbot using OpenAI API and LangChain (hobby project).
+- Explored prompt engineering concepts through online courses.
+
+Label: Partial Match

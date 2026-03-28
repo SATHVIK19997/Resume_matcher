@@ -1,0 +1,36 @@
+Name: Kiran Reddy
+Email: kiran.reddy@email.com
+Location: Hyderabad, India
+Experience: 7 years
+
+Summary:
+Data Scientist with 7 years of experience in machine learning, statistical modeling, and data analysis. Strong Python and SQL skills with experience building predictive models and dashboards.
+
+Work Experience:
+
+Senior Data Scientist | Amazon India | 2020 - Present (4 years)
+- Built and deployed ML models for demand forecasting and pricing optimization.
+- Used Python (scikit-learn, XGBoost, PyTorch) for model development and evaluation.
+- Created observability dashboards using QuickSight and Tableau.
+- Wrote SQL scripts to extract and analyze large datasets from Redshift.
+- Conducted A/B tests and analyzed experiment results to improve product decisions.
+
+Data Scientist | Mu Sigma | 2017 - 2020 (3 years)
+- Performed statistical analysis and built regression/classification models.
+- Automated reporting using Python scripts and SQL.
+- Presented data-driven insights to business stakeholders.
+
+Education:
+M.Sc. in Statistics | IIT Madras | 2017
+
+Technical Skills:
+- Languages: Python, SQL, R
+- ML: scikit-learn, XGBoost, PyTorch, TensorFlow, NLP (basic)
+- Data: Pandas, NumPy, Spark
+- Visualization: Tableau, QuickSight, Matplotlib
+- Cloud: AWS (S3, Redshift, SageMaker)
+- Tools: Git, Jupyter, Airflow
+
+Note: Limited experience with LLMs, GenAI, or agentic frameworks. No enterprise customer-facing or post-sales experience.
+
+Label: Partial Match

@@ -1,0 +1,33 @@
+Name: Meera Thomas
+Email: meera.thomas@email.com
+Location: Chennai, India
+Experience: 3 years
+
+Summary:
+Frontend developer with 3 years of experience building React-based web applications. Recently completed a GenAI course and interested in transitioning into AI roles.
+
+Work Experience:
+
+Frontend Developer | Zoho | 2021 - Present (3 years)
+- Built responsive UI components using React.js and TypeScript.
+- Integrated REST APIs for data fetching and form submissions.
+- Worked with product designers to implement UI/UX improvements.
+- Basic familiarity with JavaScript backend (Node.js).
+
+Junior Developer | Capgemini | 2021 (6 months internship)
+- Assisted in building frontend modules for an enterprise portal.
+
+Education:
+B.E. in Computer Science | Anna University | 2021
+
+Technical Skills:
+- Languages: JavaScript, TypeScript, HTML/CSS, Python (basic)
+- Frameworks: React.js, Node.js
+- Tools: Git, Webpack, Figma
+- API: REST (consuming), JSON
+
+Courses Completed:
+- DeepLearning.AI GenAI for Beginners (Coursera)
+- Basic Python for Data Science
+
+Label: Poor Match

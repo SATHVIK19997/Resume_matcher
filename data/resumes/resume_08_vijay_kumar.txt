@@ -1,0 +1,34 @@
+Name: Vijay Kumar
+Email: vijay.kumar@email.com
+Location: Bengaluru, India
+Experience: 8 years
+
+Summary:
+Senior DevOps Engineer with 8 years of experience in CI/CD pipelines, cloud infrastructure, and Kubernetes orchestration. Strong expertise in AWS and GCP cloud platforms.
+
+Work Experience:
+
+Senior DevOps Engineer | Google India | 2019 - Present (5 years)
+- Designed and maintained Kubernetes clusters on GKE for large-scale microservices.
+- Built CI/CD pipelines using Jenkins, GitLab CI, and ArgoCD.
+- Managed infrastructure-as-code using Terraform and Helm charts.
+- Monitored systems using Prometheus, Grafana, and Google Cloud Monitoring.
+- Worked with REST APIs for infrastructure automation and tooling.
+
+DevOps Engineer | Cognizant | 2016 - 2019 (3 years)
+- Managed AWS infrastructure (EC2, EKS, S3, Lambda, RDS).
+- Automated deployment processes using Ansible and Bash scripts.
+
+Education:
+B.Tech in Electronics & Communication | NIT Surathkal | 2016
+
+Technical Skills:
+- DevOps: Docker, Kubernetes, Helm, Terraform, Ansible
+- Cloud: AWS (EC2, EKS, Lambda, RDS, S3), GCP (GKE, Pub/Sub, BigQuery)
+- CI/CD: Jenkins, GitLab CI, ArgoCD, GitHub Actions
+- Monitoring: Prometheus, Grafana, PagerDuty
+- Languages: Bash, Python (scripting), Go (basic)
+
+Note: No AI/ML, LLM, or GenAI experience. No customer-facing or post-sales experience.
+
+Label: Poor Match

@@ -1,0 +1,25 @@
+Name: Pooja Mehta
+Email: pooja.mehta@email.com
+Location: Delhi, India
+Experience: 2 years
+
+Summary:
+Recent computer science graduate with 2 years of experience as a software developer. Basic Python and SQL skills. No significant AI/ML experience.
+
+Work Experience:
+
+Software Developer | HCL Technologies | 2022 - Present (2 years)
+- Maintained legacy Java applications for banking clients.
+- Wrote SQL queries for data extraction and reporting.
+- Fixed bugs and implemented minor feature changes.
+- Participated in manual testing and QA processes.
+
+Education:
+B.Tech in Computer Science | Delhi Technological University | 2022
+
+Technical Skills:
+- Languages: Java, Python (beginner), SQL
+- Tools: Eclipse, Git, JIRA
+- Databases: Oracle SQL, MySQL
+
+Label: Poor Match
