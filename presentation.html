@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Matcher - Sathvik Kantharaj</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/theme/white.min.css" />
+  <style>
+    .reveal {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+    .reveal .slides section {
+      text-align: left;
+      padding: 30px 50px;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: #111827;
+      text-transform: none;
+      letter-spacing: -0.3px;
+      font-weight: 700;
+    }
+    .reveal h1 { font-size: 1.7em; line-height: 1.25; }
+    .reveal h2 { font-size: 1.2em; margin-bottom: 0.4em; }
+    .reveal p, .reveal li { font-size: 0.54em; color: #374151; line-height: 1.75; }
+    .reveal ul { margin-left: 1.2em; }
+    .reveal li { margin-bottom: 0.35em; }
+    .reveal .progress span { background: #2563eb; }
+
+    .blue  { color: #2563eb; }
+    .gray  { color: #9ca3af; }
+    .green { color: #059669; }
+    .red   { color: #dc2626; }
+
+    .rule {
+      border: none;
+      border-top: 3px solid #2563eb;
+      width: 40px;
+      margin: 0.5em 0 0.75em 0;
+    }
+
+    /* ── Title slide ── */
+    .t-name  { font-size: 0.58em; font-weight: 600; color: #111827; margin-top: 1.8em; }
+    .t-role  { font-size: 0.48em; color: #6b7280; margin-top: 0.15em; }
+    .t-sub   { font-size: 0.56em; color: #6b7280; margin-top: 0.3em; }
+
+    /* ── Before / After ── */
+    .ba-wrap {
+      display: flex;
+      gap: 24px;
+      margin-top: 0.7em;
+    }
+    .ba-box {
+      flex: 1;
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+    .ba-box.before {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+    }
+    .ba-box.after {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+    }
+    .ba-box .ba-title {
+      font-size: 0.52em;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .ba-box.before .ba-title { color: #dc2626; }
+    .ba-box.after  .ba-title { color: #2563eb; }
+    .ba-box ul { margin-left: 1em; }
+    .ba-box li { font-size: 0.48em; color: #374151; margin-bottom: 4px; }
+
+    /* ── How it works ── */
+    .step-list { margin-top: 0.6em; }
+    .step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .step-num {
+      min-width: 28px;
+      height: 28px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.48em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .step-body { font-size: 0.5em; color: #374151; line-height: 1.65; }
+    .step-body strong { color: #111827; display: block; margin-bottom: 2px; }
+
+    /* ── Technical: comparison table ── */
+    table.cmp {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.46em;
+      margin-top: 0.6em;
+    }
+    table.cmp th {
+      background: #111827;
+      color: #fff;
+      padding: 9px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    table.cmp td {
+      padding: 8px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #374151;
+    }
+    table.cmp tr:nth-child(even) td { background: #f9fafb; }
+    .ck { color: #059669; font-weight: 700; }
+    .cx { color: #9ca3af; }
+
+    /* ── Weights ── */
+    .w-row { margin-top: 0.7em; }
+    .w-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 11px;
+    }
+    .w-name { font-size: 0.48em; font-weight: 600; color: #111827; width: 140px; }
+    .w-track {
+      flex: 1;
+      background: #e5e7eb;
+      border-radius: 4px;
+      height: 9px;
+      overflow: hidden;
+    }
+    .w-fill  { height: 100%; border-radius: 4px; background: #2563eb; }
+    .w-pct   { font-size: 0.48em; font-weight: 700; color: #2563eb; width: 36px; text-align: right; }
+    .w-note  { font-size: 0.46em; color: #6b7280; margin-top: 0.5em; }
+
+    /* ── Results table ── */
+    table.res {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.43em;
+      margin-top: 0.5em;
+    }
+    table.res th {
+      background: #111827;
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    table.res td {
+      padding: 7px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #374151;
+    }
+    table.res tr:nth-child(even) td { background: #f9fafb; }
+    .tag {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+    .tag.g { background: #ecfdf5; color: #059669; }
+    .tag.p { background: #fffbeb; color: #d97706; }
+    .tag.x { background: #fef2f2; color: #dc2626; }
+
+    /* ── Metrics ── */
+    .m-row {
+      display: flex;
+      gap: 18px;
+      margin-top: 0.7em;
+    }
+    .m-card {
+      flex: 1;
+      border-top: 3px solid #2563eb;
+      padding: 14px 16px;
+      background: #f9fafb;
+    }
+    .m-val  { font-size: 1.5em; font-weight: 800; color: #2563eb; }
+    .m-name { font-size: 0.43em; color: #6b7280; margin-top: 3px; line-height: 1.5; }
+
+    /* ── Roadmap ── */
+    .rm-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+    .rm-num {
+      min-width: 24px;
+      height: 24px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.44em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .rm-text { font-size: 0.49em; color: #374151; line-height: 1.65; }
+    .rm-text strong { color: #111827; }
+
+    /* ── Final ── */
+    .final-wrap { padding-top: 2em; }
+    .final-wrap h2 { font-size: 1.5em; }
+    .final-link    { font-size: 0.52em; color: #2563eb; margin-top: 0.6em; }
+    .final-contact { font-size: 0.48em; color: #6b7280; margin-top: 0.2em; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- 1. Title -->
+    <section>
+      <h1>AI-Powered Resume<br/>Matching System</h1>
+      <hr class="rule" />
+      <p class="t-sub">A proof-of-concept for automated resume screening <br/>built for the Ema AI Solutions team</p>
+      <p class="t-name">Sathvik Kantharaj</p>
+      <p class="t-role">Senior Lead &nbsp;·&nbsp; Kore.ai</p>
+    </section>
+
+    <!-- 2. Agenda -->
+    <section>
+      <h2>What we'll cover today</h2>
+      <hr class="rule" />
+      <div class="step-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><strong>The Problem</strong>Why manual resume screening isn't working</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><strong>The Solution</strong>What I built and how it works</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><strong>Live Demo</strong>Walkthrough of the working prototype</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body"><strong>Results & Evaluation</strong>How well it performs and how we measure that</div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div class="step-body"><strong>Limitations & Next Steps</strong>Where it stands today and the path to production</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. The Problem -->
+    <section>
+      <h2>The problem with manual screening</h2>
+      <hr class="rule" />
+      <p>Right now, recruiters are going through resumes one by one. It's slow, it's inconsistent, and the outcome depends heavily on who's reviewing and when. The same strong candidate gets a different result depending on the reviewer's mood, time pressure, and personal bias.</p>
+      <div class="ba-wrap">
+        <div class="ba-box before">
+          <div class="ba-title">❌ Today</div>
+          <ul>
+            <li>Recruiters spend 20–30 hrs screening per open role</li>
+            <li>No standard scoring — completely subjective</li>
+            <li>Good candidates missed due to keyword mismatch</li>
+            <li>Process doesn't scale when volume spikes</li>
+            <li>No audit trail — can't explain why someone was rejected</li>
+          </ul>
+        </div>
+        <div class="ba-box after">
+          <div class="ba-title">✅ With this system</div>
+          <ul>
+            <li>Every resume gets a score in seconds</li>
+            <li>Consistent, repeatable ranking for every JD</li>
+            <li>Understands meaning — not just keyword matching</li>
+            <li>Scales to hundreds of resumes without extra effort</li>
+            <li>Transparent score breakdown per candidate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. What I built -->
+    <section>
+      <h2>What the system does</h2>
+      <hr class="rule" />
+      <p>You give it a job description and a folder of resumes. It reads every resume, understands what each candidate is about, compares that against what the role needs, and gives you a ranked shortlist with scores.</p>
+      <br/>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body"><strong>Parse & clean</strong>Splits each resume into sections — Skills, Experience, Summary, Education. Normalises the text.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body"><strong>Understand, not match</strong>Converts the JD and each resume section into meaning vectors using an AI model. "Built LLM agents" and "developed agentic AI systems" are treated as the same thing.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body"><strong>Score and rank</strong>Each section is compared against the JD and combined into a final relevance score. Skills and experience are weighted higher than education.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Technical: why this model -->
+    <section>
+      <h2>The technical choice — and why</h2>
+      <hr class="rule" />
+      <p>The core question was: keyword matching or semantic understanding? I went with semantic. Here's why that matters for this problem.</p>
+      <table class="cmp">
+        <tr>
+          <th>Factor</th>
+          <th>Sentence-Transformers (chosen)</th>
+          <th>TF-IDF (baseline considered)</th>
+        </tr>
+        <tr>
+          <td>Understands meaning</td>
+          <td class="ck">Yes — "LLM agent" ≈ "agentic AI"</td>
+          <td class="cx">No — word frequency only</td>
+        </tr>
+        <tr>
+          <td>Handles synonyms & paraphrasing</td>
+          <td class="ck">Yes</td>
+          <td class="cx">No</td>
+        </tr>
+        <tr>
+          <td>Needs internet or paid API</td>
+          <td class="ck">No — runs fully offline</td>
+          <td class="ck">No</td>
+        </tr>
+        <tr>
+          <td>Speed</td>
+          <td>~50ms per resume</td>
+          <td>Faster but less accurate</td>
+        </tr>
+        <tr>
+          <td>Works on varied language</td>
+          <td class="ck">Yes — handles different writing styles</td>
+          <td class="cx">Struggles with varied phrasing</td>
+        </tr>
+      </table>
+      <p style="margin-top: 0.5em;" class="gray">Model: all-MiniLM-L6-v2 — lightweight, fast, strong on semantic similarity. No API cost, runs on any machine.</p>
+    </section>
+
+    <!-- 6. Section weighting -->
+    <section>
+      <h2>Not all sections are equal</h2>
+      <hr class="rule" />
+      <p>A skills match should count more than an education match for a senior engineering role. The system scores each resume section separately and combines them using these weights.</p>
+      <div class="w-row">
+        <div class="w-item">
+          <span class="w-name">Technical Skills</span>
+          <div class="w-track"><div class="w-fill" style="width:40%"></div></div>
+          <span class="w-pct">40%</span>
+        </div>
+        <div class="w-item">
+          <span class="w-name">Work Experience</span>
+          <div class="w-track"><div class="w-fill" style="width:40%"></div></div>
+          <span class="w-pct">40%</span>
+        </div>
+        <div class="w-item">
+          <span class="w-name">Profile / Summary</span>
+          <div class="w-track"><div class="w-fill" style="width:15%; background:#93c5fd"></div></div>
+          <span class="w-pct" style="color:#93c5fd">15%</span>
+        </div>
+        <div class="w-item">
+          <span class="w-name">Education</span>
+          <div class="w-track"><div class="w-fill" style="width:5%; background:#bfdbfe"></div></div>
+          <span class="w-pct" style="color:#bfdbfe">5%</span>
+        </div>
+      </div>
+      <p class="w-note">These weights can be adjusted per role type — a fresh graduate role would weight education differently than a senior hire.</p>
+    </section>
+
+    <!-- 7. Results -->
+    <section>
+      <h2>Results — 10 resumes, 1 JD</h2>
+      <hr class="rule" />
+      <p style="margin-bottom:0.3em">Each resume was manually labeled before running the model. Here's how the predictions compare.</p>
+      <table class="res">
+        <tr><th>#</th><th>Candidate</th><th>Score</th><th>System Says</th><th>Manual Label</th></tr>
+        <tr><td>1</td><td>Arjun Sharma</td><td>0.699</td><td><span class="tag g">Good Match</span></td><td><span class="tag g">Good Match</span></td></tr>
+        <tr><td>2</td><td>Priya Nair</td><td>0.658</td><td><span class="tag g">Good Match</span></td><td><span class="tag g">Good Match</span></td></tr>
+        <tr><td>3</td><td>Rahul Verma</td><td>0.626</td><td><span class="tag g">Good Match</span></td><td><span class="tag g">Good Match</span></td></tr>
+        <tr><td>4</td><td>Sathvik Kantharaj</td><td>0.615</td><td><span class="tag g">Good Match</span></td><td><span class="tag g">Good Match</span></td></tr>
+        <tr><td>5</td><td>Aditya Joshi</td><td>0.588</td><td><span class="tag p">Partial</span></td><td><span class="tag p">Partial</span></td></tr>
+        <tr><td>6</td><td>Sneha Kulkarni</td><td>0.524</td><td><span class="tag p">Partial</span></td><td><span class="tag p">Partial</span></td></tr>
+        <tr><td>7</td><td>Vijay Kumar</td><td>0.441</td><td><span class="tag x">Poor</span></td><td><span class="tag x">Poor</span></td></tr>
+        <tr><td>8</td><td>Kiran Reddy</td><td>0.423</td><td><span class="tag x">Poor</span></td><td><span class="tag p">Partial</span></td></tr>
+        <tr><td>9</td><td>Meera Thomas</td><td>0.322</td><td><span class="tag x">Poor</span></td><td><span class="tag x">Poor</span></td></tr>
+        <tr><td>10</td><td>Pooja Mehta</td><td>0.290</td><td><span class="tag x">Poor</span></td><td><span class="tag x">Poor</span></td></tr>
+      </table>
+      <p class="gray" style="margin-top:0.4em">9 out of 10 correct. The one miss — Kiran Reddy — is a data scientist with Python/SQL but no LLM experience. His skills section didn't match AI-specific language closely enough to cross the Partial threshold.</p>
+    </section>
+
+    <!-- 9. Metrics -->
+    <section>
+      <h2>Does the ranking hold up?</h2>
+      <hr class="rule" />
+      <p>The question isn't just whether individual labels are correct — it's whether the system ranks candidates in the right order so a recruiter reviewing the top results is spending time on the right people.</p>
+      <div class="m-row">
+        <div class="m-card">
+          <div class="m-val">1.0</div>
+          <div class="m-name">Precision@3<br/>Every one of the top 3 results was a genuine good match</div>
+        </div>
+        <div class="m-card">
+          <div class="m-val">1.0</div>
+          <div class="m-name">Ranking Quality (nDCG@5)<br/>The top 5 are ranked in the correct order</div>
+        </div>
+        <div class="m-card">
+          <div class="m-val">0.905</div>
+          <div class="m-name">Agreement with Human (Spearman ρ)<br/>Strong alignment between model ranking and manual labels</div>
+        </div>
+      </div>
+      <p style="margin-top: 0.7em">At scale with real labeled data, we'd track <strong>Ranking Quality (nDCG@K)</strong> and <strong>Recall@K</strong> as the primary metrics — making sure we're not just ranking correctly, but also not missing good candidates buried further down.</p>
+    </section>
+
+    <!-- 10. Path to Production -->
+    <section>
+      <h2>Path to production</h2>
+      <hr class="rule" />
+      <p>This is a working POC. Here's what it takes to turn it into something the TA team uses day-to-day.</p>
+      <div style="margin-top:0.6em">
+        <div class="rm-item">
+          <div class="rm-num">1</div>
+          <div class="rm-text"><strong>PDF & DOCX support</strong> — handle real resume formats, extract structured fields like current title, years of experience, and location</div>
+        </div>
+        <div class="rm-item">
+          <div class="rm-num">2</div>
+          <div class="rm-text"><strong>Hard filter layer</strong> — enforce minimum experience, required certifications, and location on top of the semantic score</div>
+        </div>
+        <div class="rm-item">
+          <div class="rm-num">3</div>
+          <div class="rm-text"><strong>Fine-tune on real data</strong> — use historical hire/no-hire decisions to adapt the model specifically to your recruiting language and standards</div>
+        </div>
+        <div class="rm-item">
+          <div class="rm-num">4</div>
+          <div class="rm-text"><strong>API + recruiter UI</strong> — wrap in FastAPI, deploy on AWS, build a simple interface so TA team can upload a JD and get a ranked shortlist without touching code</div>
+        </div>
+        <div class="rm-item">
+          <div class="rm-num">5</div>
+          <div class="rm-text"><strong>Feedback loop</strong> — collect recruiter accept/reject signals and retrain periodically. The system gets better the more it's used.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. Thank you -->
+    <section>
+      <div class="final-wrap">
+        <h2>Thank you</h2>
+        <hr class="rule" />
+        <p style="color:#374151; max-width: 600px;">The goal was to show this problem is solvable, the approach is sound, and there's a clear path from POC to production. Happy to go deeper on anything - the code, the model choice, the evaluation, or the roadmap.</p>
+        <br/>
+        <p class="final-link">github.com/SATHVIK19997/Resume_matcher</p>
+        <p class="final-contact">Sathvik Kantharaj &nbsp;&nbsp;</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    transition: 'slide',
+    transitionSpeed: 'default',
+    controls: true,
+    progress: true,
+    slideNumber: 'c/t',
+    center: false,
+  });
+</script>
+</body>
+</html>
