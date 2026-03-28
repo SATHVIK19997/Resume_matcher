@@ -1,31 +1,11 @@
 from src.matcher import rank_resumes
 from src.evaluator import evaluate, get_label
-from src.utils import load_text, load_resumes
+from src.utils import load_text, load_resumes, classify, score_bar, SECTION_LABELS
 
 JD_PATH = "data/job_description.txt"
 RESUMES_DIR = "data/resumes"
 
 LABEL_MAP = {1.0: "Good Match", 0.5: "Partial Match", 0.0: "Poor Match"}
-
-SECTION_LABELS = {
-    "skills":     "Skills",
-    "experience": "Experience",
-    "summary":    "Summary",
-    "education":  "Education",
-}
-
-
-def classify(score):
-    if score >= 0.60:
-        return "Good Match"
-    elif score >= 0.50:
-        return "Partial Match"
-    return "Poor Match"
-
-
-def section_bar(score):
-    filled = round(score * 10)
-    return "[" + "#" * filled + "-" * (10 - filled) + "]"
 
 
 def main():
@@ -40,20 +20,18 @@ def main():
         name = r["name"].replace(".txt", "")
         score = r["score"]
         predicted = classify(score)
-        manual_score = get_label(r["name"])
-        manual = LABEL_MAP.get(manual_score, "Unknown")
+        manual = LABEL_MAP.get(get_label(r["name"]), "Unknown")
         match = "OK" if predicted == manual else "MISMATCH"
 
         print(f"{'-' * 62}")
         print(f"  #{i}  {name}")
-        print(f"       Overall Score : {score:.4f}  |  {predicted}  {match} (manual: {manual})")
+        print(f"       Overall Score : {score:.4f}  |  {predicted}  [{match}]  (manual: {manual})")
 
         if r["breakdown"]:
             print(f"       Section Scores :")
             for section, sec_score in r["breakdown"].items():
-                label = SECTION_LABELS.get(section, section.title())
-                bar = section_bar(sec_score)
-                print(f"         {label:<12}  {bar}  {sec_score:.4f}")
+                lbl = SECTION_LABELS.get(section, section.title())
+                print(f"         {lbl:<12}  {score_bar(sec_score)}  {sec_score:.4f}")
 
     print(f"{'-' * 62}\n")
 

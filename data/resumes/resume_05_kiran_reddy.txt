@@ -33,4 +33,3 @@ Technical Skills:
 
 Note: Limited experience with LLMs, GenAI, or agentic frameworks. No enterprise customer-facing or post-sales experience.
 
-Label: Partial Match

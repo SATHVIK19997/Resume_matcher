@@ -30,4 +30,3 @@ Courses Completed:
 - DeepLearning.AI GenAI for Beginners (Coursera)
 - Basic Python for Data Science
 
-Label: Poor Match

@@ -32,4 +32,3 @@ Technical Skills:
 
 Note: No deep AI/ML or LLM development experience. Familiar with AI chatbot products from a support angle but not a builder.
 
-Label: Partial Match

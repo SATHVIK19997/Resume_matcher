@@ -33,4 +33,3 @@ Technical Skills:
 - Frameworks: LangChain, LlamaIndex, scikit-learn, PyTorch
 - Support Metrics: CSAT, FRT, AHT, TAT
 
-Label: Good Match

@@ -34,4 +34,3 @@ Personal Projects:
 - Built a simple chatbot using OpenAI API and LangChain (hobby project).
 - Explored prompt engineering concepts through online courses.
 
-Label: Partial Match

@@ -22,4 +22,3 @@ Technical Skills:
 - Tools: Eclipse, Git, JIRA
 - Databases: Oracle SQL, MySQL
 
-Label: Poor Match

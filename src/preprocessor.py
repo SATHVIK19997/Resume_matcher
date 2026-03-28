@@ -7,7 +7,7 @@ nltk.download("punkt", quiet=True)
 
 STOP_WORDS = set(stopwords.words("english"))
 
-# weights for each resume section — skills and experience matter most
+# skills and experience carry the most signal for technical roles
 SECTION_WEIGHTS = {
     "skills":     0.40,
     "experience": 0.40,
@@ -15,7 +15,6 @@ SECTION_WEIGHTS = {
     "education":  0.05,
 }
 
-# keywords used to detect section headers in resume text
 SECTION_HEADERS = {
     "skills":     ["technical skills", "skills", "core skills", "key skills", "tech stack"],
     "experience": ["work experience", "employment history", "experience", "professional experience"],
@@ -26,7 +25,6 @@ SECTION_HEADERS = {
 
 def clean_text(text):
     text = text.lower()
-    # strip punctuation and special chars, keep alphanumeric + spaces
     text = re.sub(r"[^a-z0-9\s]", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
@@ -39,8 +37,7 @@ def remove_stopwords(text):
 
 
 def preprocess(text, remove_stops=False):
-    # keeping stopwords on by default since sentence-transformers
-    # work better with full natural language sentences
+    # sentence-transformers work better with full sentences so stopwords are off by default
     text = clean_text(text)
     if remove_stops:
         text = remove_stopwords(text)
@@ -48,23 +45,18 @@ def preprocess(text, remove_stops=False):
 
 
 def parse_sections(resume_text):
-    """
-    Splits a resume into named sections (skills, experience, summary, education).
-    Returns a dict of {section_name: text}. Only includes sections that were found.
-    """
     lines = resume_text.splitlines()
     sections = {}
     current_section = None
     current_lines = []
 
-    def flush(section, content_lines):
-        text = " ".join(content_lines).strip()
+    def flush(section, lines):
+        text = " ".join(lines).strip()
         if text:
             sections[section] = text
 
     for line in lines:
         stripped = line.strip().lower().rstrip(":")
-
         matched = None
         for section, keywords in SECTION_HEADERS.items():
             if stripped in keywords:
@@ -86,13 +78,9 @@ def parse_sections(resume_text):
 
 
 def get_weights_for_sections(found_sections):
-    """
-    If some sections are missing, redistribute their weight proportionally
-    to the sections that do exist.
-    """
+    # if a section is missing just redistribute its weight to whatever is present
     available = {k: v for k, v in SECTION_WEIGHTS.items() if k in found_sections}
     if not available:
         return {}
-
     total = sum(available.values())
     return {k: round(v / total, 4) for k, v in available.items()}

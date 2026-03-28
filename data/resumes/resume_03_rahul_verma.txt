@@ -31,4 +31,3 @@ Technical Skills:
 - Cloud: AWS (EC2, S3, Lambda)
 - Tools: Git, Docker, Postman
 
-Label: Good Match

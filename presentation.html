@@ -310,7 +310,89 @@
       </div>
     </section>
 
-    <!-- 5. Technical: why this model -->
+    <!-- 5. Architecture -->
+    <section>
+      <h2>End-to-end architecture</h2>
+      <hr class="rule" />
+      <div style="margin-top: 0.5em;">
+
+        <!-- Row 1: Inputs -->
+        <div style="display:flex; gap:12px; margin-bottom:10px;">
+          <div style="flex:1; background:#f0f4ff; border:1px solid #c7d2fe; border-radius:8px; padding:12px 14px; font-size:0.46em;">
+            <div style="font-weight:700; color:#1e40af; margin-bottom:4px;">INPUT A</div>
+            <div style="color:#374151;">Job Description (.txt)<br/><span style="color:#6b7280;">Plain text — role requirements, skills, responsibilities</span></div>
+          </div>
+          <div style="flex:1; background:#f0f4ff; border:1px solid #c7d2fe; border-radius:8px; padding:12px 14px; font-size:0.46em;">
+            <div style="font-weight:700; color:#1e40af; margin-bottom:4px;">INPUT B</div>
+            <div style="color:#374151;">Resume Files (.txt)<br/><span style="color:#6b7280;">Each resume as a plain text file in a folder</span></div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="text-align:center; font-size:0.5em; color:#9ca3af; margin:4px 0;">&#8595; Step 1 — Preprocessing (preprocessor.py)</div>
+
+        <!-- Row 2: Parse + Clean -->
+        <div style="display:flex; gap:12px; margin-bottom:10px;">
+          <div style="flex:1; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:12px 14px; font-size:0.45em;">
+            <div style="font-weight:700; color:#111827; margin-bottom:4px;">clean_text()</div>
+            <div style="color:#6b7280;">Lowercase · remove punctuation · normalize whitespace</div>
+          </div>
+          <div style="flex:1; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:12px 14px; font-size:0.45em;">
+            <div style="font-weight:700; color:#111827; margin-bottom:4px;">parse_sections()</div>
+            <div style="color:#6b7280;">Splits resume into: <strong style="color:#374151;">Skills · Experience · Summary · Education</strong></div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="text-align:center; font-size:0.5em; color:#9ca3af; margin:4px 0;">&#8595; Step 2 — Embedding (matcher.py · all-MiniLM-L6-v2)</div>
+
+        <!-- Row 3: Embedding -->
+        <div style="display:flex; gap:12px; margin-bottom:10px;">
+          <div style="flex:1; background:#fef9f0; border:1px solid #fcd34d; border-radius:8px; padding:12px 14px; font-size:0.45em;">
+            <div style="font-weight:700; color:#92400e; margin-bottom:4px;">model.encode() — JD</div>
+            <div style="color:#6b7280;">BERT transformer · 6 attention layers · outputs <strong style="color:#374151;">384-dim vector</strong></div>
+          </div>
+          <div style="flex:1; background:#fef9f0; border:1px solid #fcd34d; border-radius:8px; padding:12px 14px; font-size:0.45em;">
+            <div style="font-weight:700; color:#92400e; margin-bottom:4px;">model.encode() — each section</div>
+            <div style="color:#6b7280;">Same model · each section → its own <strong style="color:#374151;">384-dim vector</strong></div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="text-align:center; font-size:0.5em; color:#9ca3af; margin:4px 0;">&#8595; Step 3 — Cosine Similarity + Weighted Score (matcher.py)</div>
+
+        <!-- Row 4: Scoring -->
+        <div style="display:flex; gap:12px; margin-bottom:10px;">
+          <div style="flex:2; background:#f0fdf4; border:1px solid #86efac; border-radius:8px; padding:12px 14px; font-size:0.45em;">
+            <div style="font-weight:700; color:#166534; margin-bottom:4px;">cosine_similarity(JD_vec, section_vec) → score per section</div>
+            <div style="color:#374151; margin-bottom:6px;">Measures angle between two vectors in 384-dim space. Closer angle = higher score (0 to 1).</div>
+            <div style="color:#374151;"><strong>Overall = </strong>(Skills × 0.40) + (Experience × 0.40) + (Summary × 0.15) + (Education × 0.05)</div>
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div style="text-align:center; font-size:0.5em; color:#9ca3af; margin:4px 0;">&#8595; Step 4 — Classification &amp; Ranking (evaluate.py / main.py)</div>
+
+        <!-- Row 5: Output -->
+        <div style="display:flex; gap:12px;">
+          <div style="flex:1; background:#eff6ff; border:1px solid #93c5fd; border-radius:8px; padding:10px 14px; font-size:0.44em; text-align:center;">
+            <strong style="color:#1e40af;">score &ge; 0.60</strong><br/><span style="color:#374151;">Good Match</span>
+          </div>
+          <div style="flex:1; background:#fffbeb; border:1px solid #fcd34d; border-radius:8px; padding:10px 14px; font-size:0.44em; text-align:center;">
+            <strong style="color:#92400e;">score &ge; 0.50</strong><br/><span style="color:#374151;">Partial Match</span>
+          </div>
+          <div style="flex:1; background:#fef2f2; border:1px solid #fca5a5; border-radius:8px; padding:10px 14px; font-size:0.44em; text-align:center;">
+            <strong style="color:#991b1b;">score &lt; 0.50</strong><br/><span style="color:#374151;">Poor Match</span>
+          </div>
+          <div style="flex:2; background:#f9fafb; border:1px solid #e5e7eb; border-radius:8px; padding:10px 14px; font-size:0.44em;">
+            <strong style="color:#111827;">OUTPUT</strong><br/><span style="color:#374151;">Ranked list of all resumes with overall score + section-level breakdown</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. Technical: why this model -->
     <section>
       <h2>The technical choice — and why</h2>
       <hr class="rule" />

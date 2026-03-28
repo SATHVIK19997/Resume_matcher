@@ -39,4 +39,3 @@ Certifications:
 - AWS Certified Solutions Architect
 - Google Professional ML Engineer
 
-Label: Good Match
